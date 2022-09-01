@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from django.db import models
 from django.conf import settings
+from django.db import models
 
 from middleware.current_user import CurrentUserMiddleware
 
@@ -27,6 +27,7 @@ class AuditModel(models.Model):
 								   on_delete=models.CASCADE, null=True, blank=True)
 	updated_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='%(app_label)s_%(class)s_modificadopor',
 									   on_delete=models.CASCADE, null=True, blank=True)
+	
 	@staticmethod
 	def get_current_user():
 		return CurrentUserMiddleware.get_current_user()
@@ -41,10 +42,10 @@ class AuditModel(models.Model):
 		current_user = self.get_current_user()
 		self.set_user_fields(current_user)
 		super().save(*args, **kwargs)
+	
+	class Meta:
+		abstract = True
         
-    # class Meta:
-    #     abstract = True
-
 
 class Desire(models.Model):
     name = models.CharField('nome', max_length=150)
