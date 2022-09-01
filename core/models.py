@@ -67,3 +67,12 @@ class Job(models.Model):
     class Meta:
         verbose_name = 'tarefa'
         verbose_name_plural = 'tarefas'
+
+
+class Status(models.Model):
+
+    class Tipo(models.IntegerChoices):
+        PENDENTE = 1
+        CONCLUIDO = 2
+        CANCELADO = 3
+	

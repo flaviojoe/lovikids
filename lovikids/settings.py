@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # apps
     'core',
     'moviment',
+    'desire',
 ]
 
 MIDDLEWARE = [
