@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
-from moviment.api.viewsets import JobExecViewSet
+from moviment.api.viewsets import DesireViewSet, JobViewSet
 
 router = routers.DefaultRouter()
-router.register(r'onjob', JobExecViewSet)
+router.register(r'job', JobViewSet)
+router.register(r'desire', DesireViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
