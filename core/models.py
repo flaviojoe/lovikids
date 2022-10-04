@@ -58,6 +58,7 @@ class Desire(models.Model):
         verbose_name = 'desejo'
         verbose_name_plural = 'desejos'
 
+
 class Job(models.Model):
     name = models.CharField('nome', max_length=150)
     level = models.IntegerField('nível')

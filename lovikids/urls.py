@@ -17,13 +17,16 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
-from moviment.api.viewsets import DesireViewSet, JobViewSet
+from rest_framework.authtoken.views import obtain_auth_token
+from moviment.api.viewsets import DesireViewSet, JobViewSet, JobExecViewSet
 
 router = routers.DefaultRouter()
-router.register(r'job', JobViewSet)
-router.register(r'desire', DesireViewSet)
+router.register(r'jobs', JobViewSet)
+router.register(r'desires', DesireViewSet)
+router.register(r'onjobs', JobExecViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api-token-auth/', obtain_auth_token),
 ]
