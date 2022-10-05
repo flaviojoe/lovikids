@@ -19,11 +19,13 @@ from django.urls import path
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 from moviment.api.viewsets import DesireViewSet, JobViewSet, JobExecViewSet
+from desire.api.viewsets import DesireUserViewSet
 
 router = routers.DefaultRouter()
 router.register(r'jobs', JobViewSet)
 router.register(r'desires', DesireViewSet)
 router.register(r'onjobs', JobExecViewSet)
+router.register(r'userdesires', DesireUserViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

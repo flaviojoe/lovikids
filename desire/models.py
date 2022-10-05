@@ -14,4 +14,12 @@ class DesireUser(Timestamps, AuditModel):
     class Meta:
         verbose_name = "pedido"
         verbose_name_plural = "pedidos"
+    
+    @property
+    def user_name(self):
+        return self.user_id.first_name
+    
+    @property
+    def desire_name(self):
+        return self.desire_id.name
 
